@@ -9,19 +9,37 @@ int checkWinner(char *spaces, char player, char computer);
 int checkTie(char *spaces);
 
 int main() {
+    
     char spaces[9] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
     char user_mark,player,computer;
+    
     printf("***********TIC TAC TOE**********\n");
-    drawBoard(spaces);
+    printf("\n");
+    printf("Positions for the Marker are as follows:\n");
+    printf("     |     |     \n");
+    printf("  1  |  2  |  3  \n");
+    printf("_____|_____|_____\n");
+    printf("     |     |     \n");
+    printf("  4  |  5  |  6  \n");
+    printf("_____|_____|_____\n");
+    printf("     |     |     \n");
+    printf("  7  |  8  |  9  \n");
+    printf("     |     |     \n");
+    printf("\n");
+    l1:
     printf("Choose your Marker (X/O): ");
     scanf("%c",&user_mark);
     player = user_mark;
     if (user_mark=='X') {
     computer = 'O';
     }
-    else {
+    else if (user_mark=='O') {
         computer='X';
     }
+    else {
+        goto l1;
+    }
+    
     int running = 1;
 
     drawBoard(spaces);
